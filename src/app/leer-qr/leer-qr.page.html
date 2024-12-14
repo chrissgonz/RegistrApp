@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Escáner QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Contenedor para el lector QR -->
+  <div id="reader" style="width: 100%; max-width: 500px; margin: auto;"></div>
+
+  <!-- Mostrar resultado -->
+  <div *ngIf="scannerResult" class="result-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Resultado del Escáner</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ scannerResult }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

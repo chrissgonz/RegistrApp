@@ -1,7 +1,7 @@
 {
-  "name": "app_agosto",
+  "name": "RegistApp",
   "integrations": {
     "capacitor": {}
   },
-  "type": "angular-standalone"
+  "type": "angular"
 }

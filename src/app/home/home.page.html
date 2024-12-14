@@ -1,20 +1,53 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de inicio</title>
+  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/@ionic/angular/css/ionic.bundle.css" rel="stylesheet">
+  <style>
+    
+  </style>
+</head>
+<body>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="container">
+    <h2>Bienvenida </h2>
+    <div class="icon-container">
+      <!-- Inicio -->
+      <div class="item">
+        <ion-icon name="home-outline" ></ion-icon>
+        <img class="inicio" src="https://media-public.canva.com/4bXE4/MAE1jt4bXE4/1/tl.png" alt="">
+        <ion-button class="Inicio" expand="block" type="submit" color="warning">Inicio</ion-button>
+      </div>
+      <!-- Datos -->
+      <div class="item">
+        <ion-icon name="person-outline"></ion-icon>
+        <img class="datos" src="https://media-public.canva.com/m0XBo/MAFrQYm0XBo/1/tl.png" alt="">
+        <ion-button class="Inicio" expand="block" type="submit" color="warning">Datos</ion-button>
+      </div>
+      <!-- Mensajes -->
+      <div class="item">
+        <ion-icon name="mail-outline"></ion-icon>
+        <img class="mensaje" src="https://media-public.canva.com/F_xMQ/MAEFz9F_xMQ/1/tl.png" alt="">
+        <ion-button class="Inicio" expand="block" type="submit" color="warning">Mensajes</ion-button>
+      </div>
+      <!-- Asistencia -->
+      <div class="item">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <img class="asistencia" src="https://media-public.canva.com/gmE2M/MAFGvigmE2M/1/tl.png" alt="">
+        <ion-button class="Inicio" (click)="asistencia()" expand="block" type="submit" color="warning">Asistencia</ion-button>
+        
+      </div>
+      <!-- Notificaciones -->
+      <div class="item">
+        <ion-icon name="notifications-outline"></ion-icon>
+        <img class="notificaciones" src="https://media-public.canva.com/9JQxc/MAFLbs9JQxc/1/tl.png" alt="">
+        <ion-button class="Inicio" expand="block" type="submit" color="warning">Notificaciones</ion-button>
+      </div>
+    </div>
   </div>
-</ion-content>
+
+</body>
+</html>

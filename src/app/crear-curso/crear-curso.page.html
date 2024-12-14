@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>crear-curso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+</ion-content>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Crear Curso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <!-- Formulario para crear un nuevo curso -->
+    <ion-item>
+      <ion-label position="stacked">Código de Asignatura (Sección)</ion-label>
+      <ion-input [(ngModel)]="codigoAsignatura" placeholder="Ej. MAT101" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Horario</ion-label>
+      <ion-input [(ngModel)]="horario" placeholder="Ej. 8:00 AM - 12:00 PM" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Jornada</ion-label>
+      <ion-select [(ngModel)]="jornada" required>
+        <ion-select-option value="diurna">Diurna</ion-select-option>
+        <ion-select-option value="vespertina">Vespertina</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Botón para agregar el curso -->
+    <ion-button expand="full" color="success" (click)="agregarCurso()">Agregar Curso</ion-button>
+  </div>
+</ion-content>

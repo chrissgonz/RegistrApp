@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Formulario de registro -->
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <!-- Campo Nombre -->
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-note *ngIf="registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched" color="danger">
+        El nombre es obligatorio.
+      </ion-note>
+
+      <!-- Campo Usuario -->
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input type="text" formControlName="usuario" ></ion-input>
+      </ion-item>
+      <ion-note *ngIf="registerForm.get('usuario')?.invalid && registerForm.get('usuario')?.touched" color="danger">
+        El usuario es obligatorio.
+      </ion-note>
+
+      <!-- Campo Contraseña -->
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-note *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" color="danger">
+        La contraseña es obligatoria y debe tener al menos 6 caracteres.
+      </ion-note>
+
+      <!-- Campo Confirmar Contraseña -->
+      <ion-item>
+        <ion-label position="floating">Repite Contraseña</ion-label>
+        <ion-input type="password" formControlName="confirmPassword"></ion-input>
+      </ion-item>
+      <ion-note *ngIf="registerForm.errors?.['passwordMismatch']" color="danger">
+        Las contraseñas no coinciden.
+      </ion-note>
+
+      <!-- Campo Selección de Rol -->
+      <ion-item>
+        <ion-label position="floating">¿Quién eres?</ion-label>
+        <ion-select formControlName="role">
+          <ion-select-option value="alumno">Alumno</ion-select-option>
+          <ion-select-option value="docente">Docente</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-note *ngIf="registerForm.get('role')?.invalid && registerForm.get('role')?.touched" color="danger">
+        Seleccionar un rol es obligatorio.
+      </ion-note>
+
+      <!-- Botón de Registro -->
+      <ion-button expand="block" type="submit" [disabled]="registerForm.invalid">
+        Registrar
+      </ion-button>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,60 @@
+ion-content {
+  --background: linear-gradient(180deg, #0c0c0c, #2f37e0);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.asistencia {
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+  color: white;
+}
+
+.qr-crear-button {
+  margin-bottom: 30px; /* Espacio entre el botón y el selector de sección */
+  width: 100%; /* Botón ocupa el ancho completo */
+}
+
+.section-selector {
+  margin-top: 30px; /* Mueve el selector más abajo del botón */
+  width: 100%;
+}
+
+ion-select {
+  width: 100%; /* Asegura que el selector ocupe el ancho completo */
+}
+
+ion-note {
+  font-size: 14px;
+  margin-top: 8px;
+  color: red;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 14px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+h2{color: white;
+  text-align: center;
+}

@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Crear QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <!-- Mostrar el último código QR generado -->
+    <ion-card *ngIf="lastGeneratedQr">
+      <ion-card-header>
+        <ion-card-title>Último Código QR Generado</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ lastGeneratedQr }}</p>
+        <div style="text-align: center; margin: 20px 0;">
+          <!-- Usar directamente lastGeneratedQr como texto del QR -->
+          <qrcode [qrdata]="lastGeneratedQr" [width]="250" [errorCorrectionLevel]="'M'"></qrcode>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Formulario para generar un nuevo QR -->
+    <ion-item>
+      <ion-label position="stacked">Ingrese el texto para el QR</ion-label>
+      <ion-input [(ngModel)]="qrData"></ion-input>
+    </ion-item>
+
+    <!-- Botón para generar un código QR -->
+    <ion-button expand="full" (click)="generateQrCodeForSection()">Generar QR</ion-button>
+
+    <!-- Historial de códigos QR -->
+    <ion-list>
+      <ion-item *ngFor="let qr of qrList">
+        <qrcode [qrdata]="qr.code" [width]="70" [errorCorrectionLevel]="'M'"></qrcode>
+        <ion-label>
+          {{ qr.section }} - {{ qr.code }}
+        </ion-label>
+        <ion-button (click)="desplegarQr(qr.code)" expand="full" color="primary">
+          Ver QR
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <!-- Botón para volver -->
+    <ion-button expand="block" color="warning" (click)="volver()">Volver</ion-button>
+  </div>
+</ion-content>

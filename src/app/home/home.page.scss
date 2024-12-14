@@ -25,3 +25,63 @@
 #container a {
   text-decoration: none;
 }
+
+body {
+  background: linear-gradient(to bottom, black, blue);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+.container {
+  text-align: center;
+}
+ion-icon {
+  font-size: 50px;
+  color: white;
+  margin: 20px 0;
+}
+.item {
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.textInicio{
+  text-align: center;
+}
+.textDatos{
+  text-align: center;
+}
+.inicio{ // tamaño de las imagenes
+  height: 70px;
+  width: 70px;
+  text-align: center;
+}
+.datos{
+  height:70px ;
+  width: 70px;
+  text-align: center;
+}
+.mensaje{
+  height: 70px;
+  width: 70;
+  text-align: center;
+}
+.asistencia{
+  height: 70px;
+  width: 70px;
+  text-align: center;
+}
+.notificaciones{
+  height: 70px;
+  width: 70px;
+}

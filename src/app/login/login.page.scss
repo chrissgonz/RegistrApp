@@ -1,0 +1,80 @@
+.page-background {
+    --background: linear-gradient(to right, #010111, #4a5fbd); /* Degradado de izquierda a derecha */
+    min-height: 100vh; /* Asegura que cubra toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-container {
+    padding: 0 20px; /* Padding lateral de 20px */
+    width: 100%; /* Asegurar que ocupe todo el ancho */
+}
+
+.bold-label {
+    font-weight: bold;
+    font-size: medium;
+    
+    color: white; /* Color del texto para mejor contraste */
+    padding: 5px; /* Espaciado interno */
+}
+
+ion-input {
+    color: grey; /* Color del texto */
+    border: none; /* Eliminar borde */
+    padding: 0; /* Eliminar padding */
+    margin: 0; /* Eliminar márgenes */
+    --padding-start: 0; /* Eliminar padding interno izquierdo */
+    --padding-end: 0; /* Eliminar padding interno derecho */
+}
+
+ion-input:focus {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Sombra al enfocar */
+    outline: none; /* Eliminar el contorno por defecto */
+   
+}
+
+.recPass {
+    font-weight: bold;
+    margin: 20px 0; /* Margen superior e inferior */
+    display: block;
+    text-decoration: underline; /* Subraya el texto */
+    cursor: pointer; /* Cambia el cursor a una mano cuando pase el mouse */
+    text-align: right;
+    color:white;
+}
+
+/* Efecto hover */
+.recPass:hover {
+    color: #007bff; /* Cambia el color cuando se hace hover */
+    text-decoration: none; /* Quita el subrayado cuando se hace hover */
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.btn-ingresar {
+    font-weight: bold;
+    font-size: large ;
+}
+
+ion-item {
+    margin: 0; /* Eliminar márgenes */
+    padding: 0; /* Eliminar padding */
+    --inner-padding-end: 0; /* Eliminar padding interno derecho */
+    --inner-padding-start: 0; /* Eliminar padding interno izquierdo */
+    width: 100%; /* Asegurar que el item ocupe todo el ancho */
+   
+}
+
+.logo-container{
+    text-align: center;
+    
+}
+
+img{
+    border-radius: 10px;
+    
+}
+
+ion-text{ // boton recuperar
+    
+}

@@ -1,0 +1,89 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inicio sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="page-background">
+  <!-- Logotipo -->
+  <div class="logo-container">
+    <img src="assets/icon/duoc-uc.jpeg" alt="Logotipo de la Institución" class="logo" />
+  </div>
+
+  <!-- Formulario de inicio de sesión -->
+  <div class="form-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <!-- Campo Usuario -->
+      <ion-item>
+        <ion-label position="stacked" class="bold-label">Correo Institucional</ion-label>
+        <ion-input
+          formControlName="username"
+          placeholder="Ingresa tu correo institucional"
+          maxlength="50"
+        ></ion-input>
+      </ion-item>
+      <ion-note
+        *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched"
+        color="danger"
+      >
+        Este campo es obligatorio.
+      </ion-note>
+      <ion-note
+        *ngIf="loginForm.get('username')?.hasError('pattern') && loginForm.get('username')?.touched"
+        color="danger"
+      >
+        El correo debe pertenecer a la institución (terminar en &#64;duoc.cl).
+      </ion-note>
+
+      <!-- Campo Contraseña -->
+      <ion-item>
+        <ion-label position="stacked" class="bold-label">Contraseña</ion-label>
+        <ion-input
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+          placeholder="****"
+          maxlength="12"
+        ></ion-input>
+        <ion-button fill="clear" size="small" slot="end" (click)="togglePassword()">
+          <ion-icon [name]="showPassword ? 'eye-off' : 'eye'"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-note
+        *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+        color="danger"
+      >
+        La contraseña es requerida.
+      </ion-note>
+      <ion-note
+        *ngIf="loginForm.get('password')?.hasError('pattern') && loginForm.get('password')?.touched"
+        color="danger"
+      >
+        La contraseña solo debe contener números.
+      </ion-note>
+
+      Campo Rol
+      <ion-item>
+        <ion-label position="stacked" class="bold-label">¿Quién eres?</ion-label>
+        <ion-select formControlName="role" placeholder="Selecciona">
+          <ion-select-option value="alumno">Alumno</ion-select-option>
+          <ion-select-option value="docente">Docente</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-note
+        *ngIf="loginForm.get('role')?.hasError('required') && loginForm.get('role')?.touched"
+        color="danger"
+      >
+        Debes seleccionar un rol.
+      </ion-note>
+
+      <!-- Botones -->
+      <ion-button expand="block" type="submit" color="warning" [disabled]="loginForm.invalid">
+        Ingresar
+      </ion-button>
+      <ion-button expand="block" type="button" color="warning" (click)="registrarse()">
+        Registrarse
+      </ion-button>
+      <ion-text class="recPass" (click)="recuperarClave()">¿Olvidaste tu contraseña?</ion-text>
+    </form>
+  </div>
+</ion-content>

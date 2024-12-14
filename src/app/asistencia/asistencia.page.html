@@ -1,0 +1,90 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Asistencia</ion-title>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Mensaje de Bienvenida -->
+<div class="welcome-message" *ngIf="role">
+  <h2>Bienvenido, {{ role | titlecase }}</h2>
+</div>
+  <div class="container">
+    <!-- Botón Volver -->
+    <div class="header">
+      <ion-button fill="clear" class="back-button" (click)="volver()" slot="start">
+        <ion-icon name="arrow-back"></ion-icon>
+        Volver
+      </ion-button>
+      <h1>Asistencia</h1>
+      <hr />
+      <!-- Imagen de Asistencia -->
+      <div>
+        <img
+          class="asistencia"
+          src="https://media-public.canva.com/gmE2M/MAFGvigmE2M/1/tl.png"
+          alt="Asistencia"
+          width="54px"
+        />
+      </div>
+      <ion-icon name="home" class="home-icon" slot="end"></ion-icon>
+    </div>
+
+    <!-- Botón para Leer código QR, visible solo para alumnos -->
+    <ion-button
+      *ngIf="role === 'alumno'"
+      expand="block"
+      class="qr-button"
+      (click)="Leerqr()"
+      color="warning">
+      Leer código QR
+    </ion-button>
+
+    <!-- Botón para Crear Sección Nueva -->
+    <ion-button
+      *ngIf="role === 'docente'"
+      expand="block"
+      color="success" 
+      class="crear-seccion-button"
+      (click)="crearCurso()">
+      Crear Sección Nueva
+    </ion-button>
+
+    <!-- Selector de Sección basado en los cursos -->
+    <ion-item *ngIf="role === 'docente'" class="section-selector">
+      <ion-label position="stacked">Seleccionar Sección</ion-label>
+      <ion-select [(ngModel)]="selectedSection" placeholder="Seleccionar una sección">
+        <ion-select-option *ngFor="let curso of cursos" [value]="curso.codigo">
+          {{ curso.codigo }} - {{ curso.jornada }} ({{ curso.horario }})
+        </ion-select-option>
+      </ion-select>
+      <!-- Mensaje de advertencia si no hay sección seleccionada -->
+      <ion-note *ngIf="!selectedSection" color="danger">
+        Por favor, seleccione una sección para continuar.
+      </ion-note>
+    </ion-item>
+
+    <!-- Botón para Generar QR para la Sección Seleccionada -->
+    <ion-button
+      *ngIf="role === 'docente' && selectedSection"
+      expand="block"
+      class="qr-generar-button"
+      (click)="irACrearQr()"
+      color="warning">
+      Generar QR para la Sección Seleccionada
+    </ion-button>
+
+    <!-- Mensaje de error si no se identifica el rol -->
+    <!-- <p *ngIf="!role" class="error-message">
+      Rol no identificado. Por favor, inicie sesión nuevamente.
+    </p> -->
+
+    <!-- Mensaje cuando no se detecta un rol válido -->
+    <div *ngIf="role !== 'alumno' && role !== 'docente'" class="error-message">
+      <!-- <p>
+        <ion-icon name="alert-circle-outline" color="danger"></ion-icon>
+        Rol no identificado. Por favor, inicie sesión nuevamente.
+      </p> -->
+    </div>
+  </div>
+</ion-content>

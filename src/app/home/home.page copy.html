@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Primer App 24-agosto 004V
+      <ion-item><p>Usuario {{ par_username }}</p></ion-item>
+      <ion-item><p>Password {{ par_password }}</p></ion-item>
+
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Datos Personales</ion-card-title>
+      <ion-card-subtitle>Formulario</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-item>
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-input type="text"  [(ngModel)]="nombre"   placeholder="Ingrese nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Edad</ion-label>
+      <ion-input type="number"  [(ngModel)]="edad"  placeholder="Ingrese edad" max="10"  min="2"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  position="stacked">Carrera</ion-label>
+      <ion-select  [(ngModel)]="carrera"  placeholder="Seleccione una carrera">      
+        <ion-select-option value="informatica">Informatica</ion-select-option> 
+        <ion-select-option value="analista">Analista</ion-select-option> 
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="block">Registar</ion-button>
+
+  </ion-card>
+</ion-content>
